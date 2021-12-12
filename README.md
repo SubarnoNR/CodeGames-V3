@@ -52,9 +52,9 @@ For the state (xk+k,k), `floor((xk+k)/k) = x+1` states are reachable, the grundy
 How can we compute grundy numbers using the fact above? We start with an integer A, and while A is not divisible by K, we keep replacing A with A − floor(A/K) − 1. We are interested in the final value
 of A. However, a straightforward implementation of this will result in TLE.
 
-To make it faster, notice that if the value of floor(A/K) doesn’t change after an operation, we can perform multiple steps at once. More explicitly, if currently floor(A/K) = d, we keep decreasing A by d + 1 while A ≥ dK. Thus, instead of performing steps one by one, we can make multiple steps at once until we first get A < dK.
+To make it faster, notice that if the value of floor(A/K) doesn’t change after an operation, we can perform multiple steps at once. More explicitly, if currently floor(A/K) = d, we keep decreasing A by d + 1 while A ≥ dK. Thus, instead of performing steps one by one, we can make multiple steps at once until we first get A < dK. Finally we'll calculate the XOR sum for grundy values of each heap, and if the XOR sum is non-zero Sang-woo decides to play `FIRST`, else `SECOND`. 
 
-Time Complexity after improvement :
+Time Complexity after improvement for a single heap:
 - Since the value of floor(A/K) decreases in each step, this is O(A/K).
 - Since the value of A is multiplied by a factor of at most `(K-1)/K = (1-1/K)` in each step, in every K steps this is multiplied by a factor of approximately 1/e. Thus, this is O(K log A).
 
