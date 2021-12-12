@@ -12,7 +12,9 @@ Improved Solution : [link](./Halloween%20Heist/ImprovedSolution.cpp)
 
 ## B. Sheldon's Game
 
-Editorial
+Consider values of `n` coins in a line are stored in an array called `arr`. Let `dp[i][j]` represent the maximum value by which a player can win considering the sequence from `i'th` coin to `j'th` coin. Thus `dp[0][n-1]` will give us the required ans.
+
+Consider the sequence from `i'th` coin to `j'th` coin. Penny goes first so she can either select the `i'th` coin or the `j'th` coin. If she selects the `i'th` coin, the maximum value by which she can win is value of the `i'th` coin- max value by which a player can win in the sequence from `(i+1)'th` coin to `j'th` coin. Similarly, if she selects the `j'th` coin, the max value by which she can win is value of the `j'th` coin- max value by which a player can win in the sequence from `i'th` coin to `(j-1)'th coin`. This problem can easily be solved using dynamic programming in O(n^2) time complexity. 
 
 ## C. Hermione's Dilemma 
 
@@ -37,7 +39,9 @@ The solution can be found [here]()
 
 ## E. Save the Gold
 
-Editorial
+The problem can be thought of as a sequence `a` of `n` integers where we have to find the max value of `a[i] mod a[j]` for all `a[i] >= a[j]`. 
+
+Let us iterate over all different `a[j]`. Since we need to maximize , then iterate all integer `x` (such `x` divisible by `a[j]`) in range from `2*a[j] to M`, where `M` — doubled maximum value of the sequence. For each such `x` we find maximum `a[i]`, such that `a[i]<x` using a set. After that, update answer by value `a[i] mod a[j]` if answer is less than that value. Constraints for numbers in sequence `a` allow to do this in time O(1) with an array. Total time complexity is O(nlogn+MlogM). 
 
 ## F. Squid Game
 
