@@ -26,7 +26,14 @@ For more applications on bitsets, you can read [this wonderful post]() by Errich
 
 ## D. The Army of the Dead
 
-Editorial
+The Problem can be reframed as : Given a graph G(V,E), find number of vertices v belonging to (V - {1}) such that their removal can cause the previously connected graph to be split into 2 or more connected components.
+
+This is the standard problem of finding articulation points in any graph, which can easily be solved by running DFS whilst keeping track of the earliest discovery time of any vertex that the subtree at any vertex has a back-edge to, as any subtree in the DFS Tree which doesn't have a single back-edge to some previously dicovered vertex, must have an articulation point as its root.
+
+You may read more about it [here](https://cp-algorithms.com/graph/cutpoints.html).
+
+The solution can be found [here]()
+
 
 ## E. Save the Gold
 
@@ -52,16 +59,23 @@ For the state (xk+k,k), `floor((xk+k)/k) = x+1` states are reachable, the grundy
 How can we compute grundy numbers using the fact above? We start with an integer A, and while A is not divisible by K, we keep replacing A with A − floor(A/K) − 1. We are interested in the final value
 of A. However, a straightforward implementation of this will result in TLE.
 
-To make it faster, notice that if the value of floor(A/K) doesn’t change after an operation, we can perform multiple steps at once. More explicitly, if currently floor(A/K) = d, we keep decreasing A by d + 1 while A ≥ dK. Thus, instead of performing steps one by one, we can make multiple steps at once until we first get A < dK. Finally we'll calculate the XOR sum for grundy values of each heap, and if the XOR sum is non-zero Sang-woo decides to play `FIRST`, else `SECOND`. 
+To make it faster, notice that if the value of floor(A/K) doesn’t change after an operation, we can perform multiple steps at once. More explicitly, if currently floor(A/K) = d, we keep decreasing A by d + 1 while A ≥ dK. Thus, instead of performing steps one by one, we can make multiple steps at once until we first get A < dK.
 
-Time Complexity after improvement for a single heap:
+Time Complexity after improvement :
 - Since the value of floor(A/K) decreases in each step, this is O(A/K).
 - Since the value of A is multiplied by a factor of at most `(K-1)/K = (1-1/K)` in each step, in every K steps this is multiplied by a factor of approximately 1/e. Thus, this is O(K log A).
 
-We should take the better of the two analysis above: it’s O(min(A/K, K log A) = O(√(A log A)).
+We should take the better of the two analysis above: it’s O(min(N/K, K log N) = O(√N log N).
 
 Solution : [link](./Squid%20Game/SolutionCode.cpp)
 
 ## G. The Tournament of Power
 
-Editorial
+Let's look at all the information we have :
+
+1) Two disjoint list of warriors
+2) A Bunch of liked fights between warriors in different tablets only
+3) Some liked players (which should remain in the end)
+4) Some disliked players (which shouldn't remain in the end)
+
+And we need to make sure that at least 
