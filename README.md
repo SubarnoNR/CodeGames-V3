@@ -58,7 +58,7 @@ Time Complexity after improvement :
 - Since the value of floor(A/K) decreases in each step, this is O(A/K).
 - Since the value of A is multiplied by a factor of at most `(K-1)/K = (1-1/K)` in each step, in every K steps this is multiplied by a factor of approximately 1/e. Thus, this is O(K log A).
 
-We should take the better of the two analysis above: it’s O(min(N/K, K log N) = O(√N log N).
+We should take the better of the two analysis above: it’s O(min(A/K, K log A) = O(√(A log A)).
 
 Solution : [link](./Squid%20Game/SolutionCode.cpp)
 
