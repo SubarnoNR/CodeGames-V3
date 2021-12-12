@@ -22,7 +22,7 @@ Notice the fact that finding intersection between 2 bit-strings is equivalent to
 
 Solution : [link](./Hermione's%20Dilemma/trial.cpp)
 
-For more applications on bitsets, you can read [this wonderful post]() by Errichto. The problem statement was inspired by the workers example given in this post.
+For more applications on bitsets, you can read [this wonderful post](https://codeforces.com/blog/entry/73558) by Errichto. The problem statement was inspired by the workers example given in this post.
 
 ## D. The Army of the Dead
 
