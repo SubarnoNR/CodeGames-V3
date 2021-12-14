@@ -16,6 +16,8 @@ Consider values of `n` coins in a line are stored in an array called `arr`. Let 
 
 Consider the sequence from `i'th` coin to `j'th` coin. Penny goes first so she can either select the `i'th` coin or the `j'th` coin. If she selects the `i'th` coin, the maximum value by which she can win is value of the `i'th` coin- max value by which a player can win in the sequence from `(i+1)'th` coin to `j'th` coin. Similarly, if she selects the `j'th` coin, the max value by which she can win is value of the `j'th` coin- max value by which a player can win in the sequence from `i'th` coin to `(j-1)'th coin`. This problem can easily be solved using dynamic programming in O(n^2) time complexity. 
 
+Solution : [link](./Sheldon's%20Game/solution.cpp)
+
 ## C. Hermione's Dilemma 
 
 The problem statement requires us to find the maximum overlap between any 2 bit-strings. A straight-forward solution would be iterating over all pairs of strings, and finding the intersection in linear time. The overall time complexity will be O(NxNxD), which will be enough to pass 70% of the test cases.
@@ -42,6 +44,8 @@ The solution can be found [here]()
 The problem can be thought of as a sequence `a` of `n` integers where we have to find the max value of `a[i] mod a[j]` for all `a[i] >= a[j]`. 
 
 Let us iterate over all different `a[j]`. Since we need to maximize , then iterate all integer `x` (such `x` divisible by `a[j]`) in range from `2*a[j] to M`, where `M` — doubled maximum value of the sequence. For each such `x` we find maximum `a[i]`, such that `a[i]<x` using a set. After that, update answer by value `a[i] mod a[j]` if answer is less than that value. Constraints for numbers in sequence `a` allow to do this in time O(1) with an array. Total time complexity is O(nlogn+MlogM). 
+
+Solution : [link](./Save%20the%20Gold/soln.cpp)
 
 ## F. Squid Game
 
