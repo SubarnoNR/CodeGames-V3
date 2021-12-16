@@ -111,6 +111,6 @@ This reduces our problem to finding the Maximum Matching of the new Graph (```G'
 Using the [Hopcraft Karp](https://en.wikipedia.org/wiki/Hopcroft%E2%80%93Karp_algorithm) Algorithm for finding the maximum matching, will pass all testcases and so will an extremely efficient implementation of [Kuhn's Algorithm](https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html).
 
 You may read about said algorithms and theorems from the hyperlinks above.
-The solution is available [here](./The%20Tournament%20of%20Power/sol.cpp))
+The solution is available [here](./The%20Tournament%20of%20Power/sol.cpp).
 
 
