@@ -36,7 +36,7 @@ This is the standard problem of finding articulation points in any graph, which 
 
 You may read more about it [here](https://cp-algorithms.com/graph/cutpoints.html).
 
-The solution can be found [here]()
+The solution can be found [here](./The%20Army%20of%20the%20Dead/sol.cpp)
 
 
 ## E. Save the Gold
@@ -82,8 +82,35 @@ Solution : [link](./Squid%20Game/SolutionCode.cpp)
 Let's look at all the information we have :
 
 1) Two disjoint list of warriors
-2) A Bunch of liked fights between warriors in different tablets only
+2) A Bunch of liked fights between warriors in different lists only (As the Grandminister has already observed that the Army kings don't like fights among warriors in their own tablets)
 3) Some liked players (which should remain in the end)
 4) Some disliked players (which shouldn't remain in the end)
 
-And we need to make sure that at least 
+And we need to make sure that :
+
+1) at least one of the warriors of every liked fight remains
+2) None of the disliked players remain.
+3) All of the liked players remain
+
+The Problem can be modelled aptly by a Bipartite Graph ```G(X,Y,E)``` , where X could be the warriors in the first army king's tablet, Y in second's and E could be composed of undirected edges signifying the interesting fights.
+
+If ```D = {d_1 , d_2 , d_3 , ... , d_k }``` denote the disliked warriors, then all the warriors ```W = {w_1, w_2, w_3 ..... w_p}``` belonging to ``` X union Y``` such that there is an edge to/from each ```w_i``` and ```d_j``` , then all the warriors in ```W``` must be a part of the final arena.
+
+Thus, Once we compute the list ```W``` (which can be done with simple iterations), all we need to do is update L to be ```L union W```.
+
+Now, that we have taken care of all the disliked warriors.
+
+We move to liked warriors(updated list).
+
+As all of these will be a part of the final arena, we need not bother about any of the edges that come out of the vertices in this list, so after removing all the vertices signifying disliked warriors and removing all the edges starting from our updated list of liked warriors, we'd be left with ```G'(X',Y',E')``` and we need to find the minimum number of vertices such that we could cover all the interesting fights. (This is known as the Minimum [Vertex Cover](https://mathworld.wolfram.com/VertexCover) of a graph.)
+
+Bipartite Graphs have a special property given by [Koenig's Theorem](https://mathworld.wolfram.com/Koenig-EgevaryTheorem.html), which states that the size of the minimum vertex cover of any bipartite graph is same as the size of the [maximum matching](https://en.wikipedia.org/wiki/Matching_(graph_theory)).
+
+This reduces our problem to finding the Maximum Matching of the new Graph (```G'```), and standard algorithms are available for the same.
+
+Using the [Hopcraft Karp](https://en.wikipedia.org/wiki/Hopcroft%E2%80%93Karp_algorithm) Algorithm for finding the maximum matching, will pass all testcases and so will an extremely efficient implementation of [Kuhn's Algorithm](https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html).
+
+You may read about said algorithms and theorems from the hyperlinks above.
+The solution is available [here](./The%20Tournament%20of%20Power/sol.cpp))
+
+
