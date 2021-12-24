@@ -70,10 +70,10 @@ of A. However, a straightforward implementation of this will result in TLE.
 To make it faster, notice that if the value of floor(A/K) doesn’t change after an operation, we can perform multiple steps at once. More explicitly, if currently floor(A/K) = d, we keep decreasing A by d + 1 while A ≥ dK. Thus, instead of performing steps one by one, we can make multiple steps at once until we first get A < dK.
 
 Time Complexity after improvement :
-- Since the value of floor(A/K) decreases in each step, this is O(A/K).
-- Since the value of A is multiplied by a factor of at most `(K-1)/K = (1-1/K)` in each step, in every K steps this is multiplied by a factor of approximately 1/e. Thus, this is O(K log A).
+- Since the value of floor(A/K) decreases in each step, this is at most O(A/K).
+- Since the value of A is multiplied by a factor of at most `(K-1)/K = (1-1/K)` in each step, in every K steps this is multiplied by a factor of approximately 1/e. Thus, this is at most O(K log A).
 
-We should take the better of the two analysis above: it’s O(min(N/K, K log N) = O(√N log N).
+We should take the better of the two analysis above: it’s O(min(N/K, K log N) = O(√(N log N)).
 
 Solution : [link](./Squid%20Game/SolutionCode.cpp)
 
